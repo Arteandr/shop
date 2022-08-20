@@ -3,12 +3,12 @@ version: '3.9'
 services:
   admin:
     container_name: admin
-    image: snak1o/shop_admin
+    image: snak1o/shop_admin:latest
     env_file:
       - ./frontend.env
   frontend:
     container_name: frontend
-    image: snak1o/shop
+    image: snak1o/shop:latest
     env_file:
       - ./frontend.env
   redis:
@@ -48,5 +48,6 @@ services:
     depends_on:
       - backend
       - frontend
+      - admin
     volumes:
       - $HOME/files:/var/files
